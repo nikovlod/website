@@ -1,0 +1,38 @@
+<html><body><script>
+
+function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			vars[key] = value !== undefined ? value : '';
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+
+var $_GET=$_GET();
+var title=$_GET['title'];
+var id = $_GET['id'];
+var subject = $_GET['subject'];
+var topic=$_GET['topic'];
+var subtopic=$_GET['subtopic'];
+
+var type=$_GET['type'];
+var note=$_GET['note'];
+
+
+
+
+link=`https://protobuddhism.000webhostapp.com/content_description.php?id=${id}&subject=${subject}&topic=${topic}&subtopic=${subtopic}&title=${title}&type=${type}&note=${note}`;
+document.write(link);
+//document.write(title,type);
+
+window.location.replace(link);
+
+
+</script></body></html>
